@@ -1,0 +1,29 @@
+{
+    "name": "Torch DevContainer",
+    "build": {
+      "dockerfile": "Dockerfile"
+    },
+    "workspaceFolder": "/workspace",
+    "settings": {
+      "python.languageServer": "Pylance",
+      "terminal.integrated.shell.linux": "/bin/bash"
+    },
+    "extensions": [
+      "ms-python.python",
+      "ms-toolsai.jupyter",
+      "ms-vscode.cpptools"
+    ],
+    "remoteUser": "root",
+    "mounts": [
+      "source=${localWorkspaceFolder},target=/workspace,type=bind",
+      "source=/home/wlin/workspace/dataset/can_bus,target=/workspace/BEVFormer/BEVFormer_tensorrt/data/can_bus,type=bind",
+      "source=/home/wlin/workspace/dataset/nuscenes,target=/workspace/BEVFormer/BEVFormer_tensorrt/data/nuscenes,type=bind"
+    ],
+    "postCreateCommand": "pip install --no-cache-dir --upgrade pip",
+    "runArgs": [
+      "--gpus", "all",
+      "--shm-size=8G"
+    ]
+  }
+  
+    
