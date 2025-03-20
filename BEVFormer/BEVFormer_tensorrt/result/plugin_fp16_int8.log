@@ -1,0 +1,79 @@
+root@f61636c229b9:/workspace/BEVFormer/BEVFormer_tensorrt# python3 tools/bevformer/evaluate_trt.py configs/bevformer/plugin/bevformer_tiny_trt_p.py checkpoints/tensorrt/bevformer_tiny_epoch_24_cp_opset16_entropy_int8_fp16.trt
+WARNING: Logging before flag parsing goes to stderr.
+W0320 13:17:26.033031 123820565006144 collision.py:11] No FCL -- collision checking will not work
+Loaded tensorrt plugins from /workspace/BEVFormer/BEVFormer_tensorrt/TensorRT/lib/libtensorrt_ops.so
+2025-03-20 13:17:26,116 - mmdeploy - INFO - Successfully loaded tensorrt plugins from /mmdeploy/mmdeploy/lib/libmmdeploy_tensorrt_ops.so
+I0320 13:17:26.116971 123820565006144 init_plugins.py:34] Successfully loaded tensorrt plugins from /mmdeploy/mmdeploy/lib/libmmdeploy_tensorrt_ops.so
+WARNING!!!!, Only can be used for obtain inference speed!!!!
+/workspace/BEVFormer/BEVFormer_tensorrt/./third_party/bev_mmdet3d/models/detectors/mvx_two_stage.py:86: UserWarning: DeprecationWarning: pretrained is a deprecated                     key, please consider using init_cfg
+  warnings.warn(
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>] 81/81, 7.7 task/s, elapsed: 11s, ETA:     0s
+Formating bboxes of pts_bbox
+Start to convert detection format...
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>] 81/81, 44.6 task/s, elapsed: 2s, ETA:     0s
+Results writes to /tmp/tmp26elz7jm/results/pts_bbox/results_nusc.json
+Evaluating bboxes of pts_bbox
+======
+Loading NuScenes tables for version v1.0-mini...
+23 category,
+8 attribute,
+4 visibility,
+911 instance,
+12 sensor,
+120 calibrated_sensor,
+31206 ego_pose,
+8 log,
+10 scene,
+404 sample,
+31206 sample_data,
+18538 sample_annotation,
+4 map,
+Done loading in 0.271 seconds.
+======
+Reverse indexing ...
+Done reverse indexing in 0.0 seconds.
+======
+Initializing nuScenes detection evaluation
+Loaded results from /tmp/tmp26elz7jm/results/pts_bbox/results_nusc.json. Found detections for 81 samples.
+Loading annotations for mini_val split from nuScenes version: v1.0-mini
+100%|█████████████████████████████████████████████████████████████████████████| 81/81 [00:00<00:00, 723.64it/s]
+Loaded ground truth annotations for 81 samples.
+Filtering predictions
+=> Original number of boxes: 20015
+=> After distance based filtering: 20011
+=> After LIDAR and RADAR points based filtering: 20011
+=> After bike rack filtering: 20000
+Filtering ground truth annotations
+=> Original number of boxes: 4441
+=> After distance based filtering: 3785
+=> After LIDAR and RADAR points based filtering: 3393
+=> After bike rack filtering: 3393
+Accumulating metric data...
+Calculating metrics...
+Saving metrics to: /tmp/tmp26elz7jm/results/pts_bbox
+mAP: 0.2692
+mATE: 0.8523
+mASE: 0.4727
+mAOE: 0.7126
+mAVE: 0.7370
+mAAE: 0.2990
+NDS: 0.3272
+Eval time: 2.5s
+
+Per-class results:
+Object Class    AP      ATE     ASE     AOE     AVE     AAE
+car     0.476   0.718   0.169   0.194   0.179   0.092
+truck   0.420   0.756   0.204   0.275   0.081   0.003
+bus     0.570   0.555   0.139   0.098   1.571   0.034
+trailer 0.000   1.000   1.000   1.000   1.000   1.000
+construction_vehicle    0.000   1.000   1.000   1.000   1.000   1.000
+pedestrian      0.450   0.800   0.297   0.758   0.540   0.237
+motorcycle      0.291   0.937   0.329   1.652   0.068   0.002
+bicycle 0.148   1.037   0.293   0.436   1.458   0.024
+traffic_cone    0.336   0.719   0.297   nan     nan     nan
+barrier 0.000   1.000   1.000   1.000   nan     nan
+************************************************** SUMMARY **************************************************
+NDS: 0.327
+mAP: 0.269
+Latency: 18.11ms
+FPS: 55.21811154058531

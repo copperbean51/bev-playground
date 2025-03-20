@@ -1,0 +1,29 @@
+ccumulating metric data...
+Calculating metrics...
+Saving metrics to: /tmp/tmpk1glvl40/results/pts_bbox
+mAP: 0.2652
+mATE: 0.8563
+mASE: 0.4700
+mAOE: 0.7120
+mAVE: 0.7302
+mAAE: 0.2981
+NDS: 0.3259
+Eval time: 2.5s
+
+Per-class results:
+Object Class    AP      ATE     ASE     AOE     AVE     AAE
+car     0.478   0.709   0.168   0.189   0.181   0.092
+truck   0.389   0.795   0.206   0.281   0.071   0.008
+bus     0.579   0.531   0.134   0.096   1.522   0.039
+trailer 0.000   1.000   1.000   1.000   1.000   1.000
+construction_vehicle    0.000   1.000   1.000   1.000   1.000   1.000
+pedestrian      0.446   0.804   0.297   0.735   0.528   0.227
+motorcycle      0.286   0.915   0.328   1.610   0.063   0.010
+bicycle 0.121   1.098   0.276   0.496   1.476   0.010
+traffic_cone    0.353   0.711   0.291   nan     nan     nan
+barrier 0.000   1.000   1.000   1.000   nan     nan
+************************************************** SUMMARY **************************************************
+NDS: 0.326
+mAP: 0.265
+Latency: 57.79ms
+FPS: 17.304031839418585
